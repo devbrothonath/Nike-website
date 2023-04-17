@@ -23,11 +23,11 @@ const products = [
     price: 149,
     colors: [
       {
-        code: "lightgray",
+        code: "#ff9999",
         img: "./img/jordan.png",
       },
       {
-        code: "green",
+        code: "darkgrey",
         img: "./img/jordan2.png",
       },
     ],
@@ -85,9 +85,10 @@ const choosenProductImg = document.querySelector(".productImg");
 const choosenProductTitle = document.querySelector(".productTitle");
 const choosenProductPrice = document.querySelector(".productPrice");
 const choosenShoeColor = document.querySelectorAll(".shoeColor");
-console.log(choosenShoeColor);
-const choosenShoeSize1 = document.querySelector(".shoeSize1");
-const choosenShoeSize2 = document.querySelector(".shoeSize2");
+// console.log(choosenShoeColor); 
+const choosenShoeSize = document.querySelectorAll(".shoeSize");
+// const choosenShoeSize2 = document.querySelector(".shoeSize2");
+
 
 menuItems.forEach((item, index) => {
   item.addEventListener("click", () => {
@@ -116,19 +117,16 @@ choosenShoeColor.forEach((shoeColor, index) => {
   });
 });
 
-var isClicked1 = false;
-choosenShoeSize1.addEventListener("click", ()=>{
-    isClicked1 = !isClicked1;
-    choosenShoeSize1.style.backgroundColor = (isClicked1 == true) ? "black" : "white"
-    choosenShoeSize1.style.color = (isClicked1 == true) ? "white" : "black"
+choosenShoeSize.forEach((size,index)=>{
+  size.addEventListener("click",()=>{
+    choosenShoeSize.forEach((size)=>{
+      size.style.backgroundColor = "white"
+    size.style.color = "black"
+    })
+    size.style.backgroundColor = "black"
+    size.style.color = "white"
+  })
 })
-var isClicked2 = false;
-choosenShoeSize2.addEventListener("click", ()=>{
-    isClicked2 = !isClicked2;
-    choosenShoeSize2.style.backgroundColor = (isClicked2 == true) ? "black" : "white"
-    choosenShoeSize2.style.color = (isClicked2 == true) ? "white" : "black"
-})
-
 // changes the style of button based on shoe size clicked
 // choosenShoeSize.forEach((shoeSize) => {
 //   shoeSize.addEventListener("click", (e) => {
